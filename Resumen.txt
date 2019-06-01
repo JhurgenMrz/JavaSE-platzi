@@ -39,3 +39,124 @@ Gracias a la Maquina Virtual (JVM)
 El codigo no esta expuesto a nadie ya que a la hora de compilar
 el codigo lo convierte a ByteCode(archivo .class) y a la hora de
 correr el programa no lee el codigo fuente.
+
+
+Resumen Tipos de datos primitivos en Java
+En Java existen ocho tipos de datos primitivos que se pueden clasificar en:
+
+Números enteros (byte, short, int, long).
+Números reales (float, double).
+Carácter (char).
+Booleano o lógico (boolean).
+De todos ellos, salvo del tipo boolean que únicamente puede ser true o false, en la siguiente tabla se muestran sus posibles valores mínimo y máximo:
+
+Lista de tipos de datos primitivos del lenguaje Java
+Tipo	Tamaño	Valor mínimo	Valor máximo
+
+byte	8 bits	-128	127
+short 16 bits	-32768	32767
+int	32 bits	-2147483648	2147483647
+long	64 bits	-9223372036854775808	9223372036854775807
+float	32 bits	-3.402823e38	3.402823e38
+double	64 bits	-1.79769313486232e308 1.79769313486232e308
+char	16 bits	‘\u0000’	‘\uffff’
+
+
+CONVERSIONES NO SEGURAS
+No todos los Cast de variables se puede convertir de forma segura.
+
+Ejemplo:
+Al convertir un Short de 2 bytes a Byte que contiene 1 Byte se deberá cortar los bits superiores ocasionando pérdidas de información.
+
+short datoShort = 259;
+byte datoByte = (byte) datoShort;
+
+Al imprimir la variable “datoByte” da como resultado: 3
+
+259: En binario es 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 1 que equivale a 2 bytes.
+
+Al castearlo en Byte toma los primeros 8 bits del lado derecho. 0 0 0 0 0 0 1 1 (descartando el bit 1 de la posición 8). Este binario en formato decimal corresponde a 3.
+
+Espero que sea de gran ayuda
+
+
+P.O.O.
+	Ver el problema como un ESCENARIO, ver el escenario y tratar de simularlo con objetos.
+	
+	Objetos:Es una entidad de la clase, la cual contiene atributos y métodos/comportamientos
+		Pueden ser fisicos o CONCEPTUALES
+		Objetos:---> Atributos	-Un objeto debe tener atributos, solo si tiene atributos
+					-Los nombres y atributos de los objetos por lo general son SUSTANTIVOS
+
+			---> Operaciones	-Funcionalidades que puede hacer un objeto.	
+		(Funcionalidades/Métodos)	-Las Operaciones suelen ser verbos o sustantivos y verbos.
+	Clases: Una clase es la forma en cómo defines tu objeto para generar más objetos
+		Las Clases son descriptivas, son plantillas.
+		
+
+
+
+
+La programación orientada a objetos nos permite traducir el mundo que nos rodea a código. Esto incluye objetos fisicos de la vida real y también objetos conceptuales.
+
+Ahora bien, la Herencia representa el tercer pilar de la programación orientada a objetos (POO de ahora en adelante).
+
+Los cuatro pilares de la POO son:
+-Abstracción (La capacidad de declarar clases)
+-Encapsulamiento (La capacidad de utilizar modificadores de acceso)
+-Reutilización (La capacidad de generar Herencia)
+-Polimorfismo (Se verá mas adelante en el curso, pero es la capacidad de permitir mediante la herencia que dos objetos distintos se comporten como un objeto padre común, por ejemplo en el uso de sobrecargas de métodos)
+
+Entonces, la Herencia nos permite generalizar características y comportamientos en grupos más amplios. De manera que podamos reutilizar en la mayor cantidad de características comunes. Tal y cómo nos comenta la profe.
+
+Una estrategia para poder identificar la Herencia, tal y como indica la profe, es por ejemplo analizando nuestras entidades para detectar redundancia de dichas características.
+
+Para programar orientado a objetos es necesario primero desarrollar capacidad de análisis orientado a objetos. Para esto se lleva un paso más alla el principio de divide y vencerás de la metodología de resolución de problemas de la programación estructurada; de manera que podemos analizar de la manera más atómica los objetos que se encuentran involucrados en el sistema que queremos diseñar.
+
+Lo más recomendable antes de empezar a programar es primero diseñar la arquitectura de nuestra aplicación mediante diagramas. Para detectar la herencia podemos usar por ejemplo diagramas de clases de UML. Ver la arquitectura de nuestras entidades nos va a permitir corregir errores de lógica ántes de comenzar a programar y entender cómo van a componerse y relacionarse mediante herencia nuestros tipos definidos por el usuario (clases).
+
+Las interfaces son clases completamente abstractas (clases sin implementación). Una interfaz no encapsula datos, sólo define cuáles son los métodos que han de implementar los objetos de aquellas clases que implementen la interfaz.
+
+
+
+List
+metodo
+add(Objet o) añade un objeto al final de la lista
+add(int indice, Objet o):anade el obejeto a la lista en la pocicion indicada
+get(int indice) devuelve el objeto de la lista de la posicion inidicada.
+remove(int indice) elimina el objeto a partir del indice dado
+clear() elimina los elementos de la lista
+indexOf(Objet o) devuelve la posicion de la primera vez que un elemento coincida con el objeto pasado por parametro. Si el elemnto no se encuentra devuelve -1. tu le pasas un objeto lo busca y te devuelve el indice donde esta hubicado ese objeto.
+
+lastIndexOf(Objet o) devuelve la posicion de la ultima vez que un elemento coincida con el objeto pasado por parametro. Si el elemento no se encuentra devulve -1. tu le pasas un objeto lo busca y te devuelve el indice donde esta hubicado ese objeto, pero en este caso de la ultima vez
+size() devuelve el nimero de elementos de la lista.
+contains(Object o) devuelve verdadero si en la lista aparece el objeto pasado por parametro, para lo cual utiliza intrinsecamente el metodo equals().
+
+"Utliza el metodo (Clase diferencia de objetos) lo que esta comparando en este caso sera llas direcciones de memoria. Como cada objeto vive en cada direcciones de memoria. entonces son distintos"
+interfaces principales
+ArrayList: Almacenara un arreglo de objeto y esta puede cambiar el tamaño tiene una capacidad que crece automaticamente. No funciona en datos primitivos ArrayList<String>(); " Recuerda que colecciones y arreglos lo mejor es utilizar colecciones en plural"
+Vector; Es similar a un array, Levanta un proceso en paralelo. La diferencia es que estara sincronizado y ejecuta con hilos por lo tanto no hay coalisiones.
+
+
+
+Entrada y salida de datos, otra forma de hacerlo
+
+//creación de un objeto br de la clase bufferedReader para leer 
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in);
+
+System.out.println("cómo te llamas?");
+//leemos la entrada 
+String respuesta = br.readLine();
+
+//si queremos leer un entero
+System.out.println("tu edad?");
+int edad = Integer.parseInt(br.readLine());
+
+
+
+
+
+
+
+
+
